@@ -18,7 +18,6 @@ class BagsStore:
         if self.bags_counter[bag_inst] == 1:
             self.stock.append(bag_inst)
         self.profit -= bag_inst.price
-        bag_inst.__time_added_to_stock = time.time()
 
     def sell(self, bag_inst):
         if self.bags_counter[bag_inst] > 0:
@@ -30,13 +29,15 @@ class BagsStore:
         else:
             return False
         
-    def get_current_stock(self):
+    def get_current_stock(self, bag_type=None):
         print("Current list of bags presented in the store:")
         for i, bag in enumerate(self.stock):
-            print('index:', i + 1)
-            print(bag.get_description())
-            print('number of bags:', self.bags_counter[bag])
-            print('--------------------------------------')
+
+            if bag_type is None or bag_type == bag.__class__:
+                print('index:', i + 1)
+                print(bag.get_description())
+                print('number of bags:', self.bags_counter[bag])
+                print('--------------------------------------')
             
         print(f"Current size of stock: {len(self.stock)}")
 
@@ -118,5 +119,7 @@ class ToteBag(Bag):
 if __name__ == '__main__':
     store = BagsStore('dsf')
     backpack = Backpack('cotton', 'nike', 'red', 1000.0, 10.5, 5, True, True, True, True)
+    handbag = Handbag('cotton', 'nike', 'red', 1000.0, 10.5, True)
     store.add_to_stock(backpack)
-    store.get_current_stock()
+    store.add_to_stock(handbag)
+    store.get_current_stock(Backpack)
