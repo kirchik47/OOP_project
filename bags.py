@@ -93,9 +93,9 @@ class Backpack(Bag):
 
     def carry(self, mannequin: Mannequin):
         if mannequin.is_carrying_bag:
-            return "Already carrying a bag"
+            return "Mannequin is already carrying a bag."
         mannequin.is_carrying_bag = True
-        return "Сarrying a backpack on the back using both shoulder straps."
+        return "Mannequin is carrying a backpack on the back using both shoulder straps."
 
     def packing_instructions(self):
         return "Pack heavier items at the bottom and lighter items at the top. Utilize side pockets for quick access items."
@@ -116,9 +116,9 @@ class Handbag(Bag):
 
     def carry(self, mannequin: Mannequin):
         if mannequin.is_carrying_bag:
-            return "Already carrying a bag"
+            return "Mannequin is already carrying a bag."
         mannequin.is_carrying_bag = True
-        return "Carrying a handbag over the shoulder using the strap."
+        return "Mannequin is carrying a handbag over the shoulder using the strap."
 
     def packing_instructions(self):
         return "Organize items with the most frequently used ones on top. Secure valuables in internal pockets."
@@ -141,9 +141,9 @@ class DuffelBag(Bag):
 
     def carry(self, mannequin: Mannequin):
         if mannequin.is_carrying_bag:
-            return "Already carrying a bag"
+            return "Mannequin is already carrying a bag."
         mannequin.is_carrying_bag = True
-        return "Carrying a duffel bag by hand using the handles."
+        return "Mannequin is carrying a duffel bag by hand using the handles."
 
     def packing_instructions(self):
         return "Use shoe compartment for shoes or dirty laundry. Pack clothes in the main compartment."
@@ -166,9 +166,9 @@ class MessengerBag(Bag):
 
     def carry(self, mannequin: Mannequin):
         if mannequin.is_carrying_bag:
-            return "Already carrying a bag"
+            return "Mannequin is already carrying a bag."
         mannequin.is_carrying_bag = True
-        return "Carrying a messenger bag over shoulder"
+        return "Mannequin is carrying a messenger bag over shoulder"
 
     def packing_instructions(self):
         return "Place the laptop in the designated sleeve and use other compartments for documents and small gadgets."
@@ -189,9 +189,9 @@ class ToteBag(Bag):
 
     def carry(self, mannequin: Mannequin):
         if mannequin.is_carrying_bag:
-            return "Already carrying a bag"
+            return "Mannequin is already carrying a bag."
         mannequin.is_carrying_bag = True
-        return "Carrying a tote bag by hand"
+        return "Mannequin is carrying a tote bag by hand"
 
     def packing_instructions(self):
         return "Use the main compartment for larger items and small pockets for keys and phone."

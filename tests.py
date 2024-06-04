@@ -2,6 +2,24 @@ import unittest
 from bags import Bag, Mannequin, Backpack, Handbag, ToteBag, MessengerBag, DuffelBag
 
 
+class Mannequin:
+    def __init__(self):
+        self.is_carrying_bag = False
+    
+    def take_off_bag(self):
+        if self.is_carrying_bag:
+            self.is_carrying_bag = False
+            return "The bag is taken off."
+        return "No bag is carried."
+
+class Bag:
+    def __init__(self, material: str, brand: str, color: str, price: float, size: float):
+        self.material = material
+        self.brand = brand
+        self.color = color
+        self.price = price
+        self.size = size
+
 class TestMannequin(unittest.TestCase):
     def test_mannequin_initialization(self):
         mannequin = Mannequin()
@@ -35,9 +53,9 @@ class TestBackpack(unittest.TestCase):
                                 "The price is 100.0.")
         self.assertEqual(backpack.get_description(), expected_description)
         mannequin = Mannequin()
-        self.assertEqual(backpack.carry(mannequin), "Сarrying a backpack on the back using both shoulder straps.")
+        self.assertEqual(backpack.carry(mannequin), "Mannequin is carrying a backpack on the back using both shoulder straps.")
         self.assertTrue(mannequin.is_carrying_bag)
-        self.assertEqual(backpack.carry(mannequin), "Already carrying a bag")
+        self.assertEqual(backpack.carry(mannequin), "Mannequin is already carrying a bag.")
         self.assertEqual(backpack.packing_instructions(), "Pack heavier items at the bottom and lighter items at the top. Utilize side pockets for quick access items.")
         self.assertEqual(backpack.display_use_case(), "Ideal for students and hikers who need to carry multiple items.")
         mannequin.take_off_bag()
@@ -58,9 +76,9 @@ class TestHandbag(unittest.TestCase):
                                 "The price is 200.0.")
         self.assertEqual(handbag.get_description(), expected_description)
         mannequin = Mannequin()
-        self.assertEqual(handbag.carry(mannequin), "Carrying a handbag over the shoulder using the strap.")
+        self.assertEqual(handbag.carry(mannequin), "Mannequin is carrying a handbag over the shoulder using the strap.")
         self.assertTrue(mannequin.is_carrying_bag)
-        self.assertEqual(handbag.carry(mannequin), "Already carrying a bag")
+        self.assertEqual(handbag.carry(mannequin), "Mannequin is already carrying a bag.")
         self.assertEqual(handbag.packing_instructions(), "Organize items with the most frequently used ones on top. Secure valuables in internal pockets.")
         self.assertEqual(handbag.display_use_case(), "Perfect for daily use and casual outings.")
         mannequin.take_off_bag()
@@ -82,9 +100,9 @@ class TestDuffelBag(unittest.TestCase):
                                 "The price is 150.0.")
         self.assertEqual(duffel_bag.get_description(), expected_description)
         mannequin = Mannequin()
-        self.assertEqual(duffel_bag.carry(mannequin), "Carrying a duffel bag by hand using the handles.")
+        self.assertEqual(duffel_bag.carry(mannequin), "Mannequin is carrying a duffel bag by hand using the handles.")
         self.assertTrue(mannequin.is_carrying_bag)
-        self.assertEqual(duffel_bag.carry(mannequin), "Already carrying a bag")
+        self.assertEqual(duffel_bag.carry(mannequin), "Mannequin is already carrying a bag.")
         self.assertEqual(duffel_bag.packing_instructions(), "Use shoe compartment for shoes or dirty laundry. Pack clothes in the main compartment.")
         self.assertEqual(duffel_bag.display_use_case(), "Great for gym sessions and weekend trips.")
         mannequin.take_off_bag()
@@ -106,9 +124,9 @@ class TestMessengerBag(unittest.TestCase):
                                 "The price is 120.0.")
         self.assertEqual(messenger_bag.get_description(), expected_description)
         mannequin = Mannequin()
-        self.assertEqual(messenger_bag.carry(mannequin), "Carrying a messenger bag over shoulder")
+        self.assertEqual(messenger_bag.carry(mannequin), "Mannequin is carrying a messenger bag over shoulder")
         self.assertTrue(mannequin.is_carrying_bag)
-        self.assertEqual(messenger_bag.carry(mannequin), "Already carrying a bag")
+        self.assertEqual(messenger_bag.carry(mannequin), "Mannequin is already carrying a bag.")
         self.assertEqual(messenger_bag.packing_instructions(), "Place the laptop in the designated sleeve and use other compartments for documents and small gadgets.")
         self.assertEqual(messenger_bag.display_use_case(), "Suitable for professionals and students who need to carry a laptop and documents.")
         mannequin.take_off_bag()
@@ -129,9 +147,9 @@ class TestToteBag(unittest.TestCase):
                                 "The price is 80.0.")
         self.assertEqual(tote_bag.get_description(), expected_description)
         mannequin = Mannequin()
-        self.assertEqual(tote_bag.carry(mannequin), "Carrying a tote bag by hand")
+        self.assertEqual(tote_bag.carry(mannequin), "Mannequin is carrying a tote bag by hand")
         self.assertTrue(mannequin.is_carrying_bag)
-        self.assertEqual(tote_bag.carry(mannequin), "Already carrying a bag")
+        self.assertEqual(tote_bag.carry(mannequin), "Mannequin is already carrying a bag.")
         self.assertEqual(tote_bag.packing_instructions(), "Use the main compartment for larger items and small pockets for keys and phone.")
         self.assertEqual(tote_bag.display_use_case(), "Ideal for shopping and casual outings.")
         mannequin.take_off_bag()
